@@ -7,12 +7,7 @@ IMAGE_VERSION = "v0.50.27"
 PORT=3000 # MB_JETTY_PORT
 
 image = (
-    modal.Image.from_registry(f"metabase/metabase:{IMAGE_VERSION}", add_python="3.12", setup_dockerfile_commands=[
-        "RUN echo $PATH",
-        "RUN ls -la /usr/local/bin | grep python",
-        "RUN which python",
-        "RUN /usr/local/bin/python3 -m pip install --upgrade pip",
-    ])
+    modal.Image.from_registry(f"metabase/metabase:{IMAGE_VERSION}", add_python="3.12")
     .dockerfile_commands("ENTRYPOINT []")
 )
 
